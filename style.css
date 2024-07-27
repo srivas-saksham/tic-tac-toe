@@ -1,0 +1,370 @@
+/* CSS HEX 
+--eerie-black: #1c1d21ff;
+--tiffany-blue: #7fd1b9ff;
+--light-coral: #e56b6fff;
+--buff: #eaac8bff;
+--teal: #087e8bff; */
+
+body{
+    transform: translateY(-30px);
+    background-image: url('./PNGs/Cyan db-Corner Blob.png');
+    background-size:contain;
+    text-align: center;
+    color: #7fd1b9ff;
+    overflow: hidden;   
+}
+
+.container{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #7fd1b9ff;
+}
+#game{
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.7vmin;
+    row-gap: 0vmin;
+}
+.box{
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 10%;
+    align-items: center;
+    border: none;
+    box-shadow:inset -4px -5px 1rem 3px rgba(0, 0, 0, .5);
+    cursor:pointer;
+    background-color:  #7fd1b9ff;
+}
+.Text{
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, .5);
+    font: Monospace;
+    font-weight: bold;
+}
+#mainHead1{
+    font-size: 4.5vmin;
+    transform: translateY(-45px);
+}
+#mainHead0{
+    font-style:italic;
+    font-size: 7vmin;
+    transform: translateY(0px);
+}
+.boxTemp{
+    font-size: 10vmin;
+    color:rgba(28, 29, 33, .5);
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 10%;
+    align-items: center;
+    border: none;
+    box-shadow:inset -4px -5px 1rem 3px rgba(0, 0, 0, .5);
+    cursor:pointer;
+    background-color:  #7fd1b9ff;
+    opacity: 80%;
+}
+#boxPerma{
+    font-size: 10vmin;
+    color:rgb(28, 29, 33);
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 10%;
+    align-items: center;
+    border: none;
+    box-shadow:inset -4px -5px 1rem 3px rgba(0, 0, 0, .5);
+    cursor:not-allowed;
+    background-color:  #e56b6fff;
+}
+#boxPermaGreen{
+    font-size: 10vmin;
+    color:rgb(28, 29, 33);
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 10%;
+    align-items: center;
+    border: none;
+    box-shadow:inset -4px -5px 1rem 3px rgba(0, 0, 0, .5);
+    cursor:pointer;
+    background-color:  #6be581;
+}
+.resultCont{
+    transform: translateY(-7vmin);
+    height: 10vmin;
+    margin: 0%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2vmin;
+}
+.hide{
+    display: none;
+}
+#winningMsg{
+    transform: translateY(-5vmin);
+    height: 4vmin;
+    color: #e56b6fff;
+    align-items: center;
+    font-size: 300%;
+    font-weight: bold;
+    padding: 0%;
+    margin: 0%;
+    animation: winMsgPop .7s ease-in .4s;
+    animation-fill-mode: both;
+}
+
+#newGameBtn{
+    transform: scale(150%) translateY(-10px);
+    height: 3.5vmin;
+    width: 13vmin;
+    padding: 0%;
+    margin: 0%;
+    background-color:#7fd1b9ff;
+    color: #1c1d21ff;
+    font-size:medium;
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    cursor:pointer;
+    transition: all 0.3s;
+    animation: newGameBtnShow 1s ease 3s;
+    animation-fill-mode: both;
+}
+#newGameBtn:hover{
+    transform: translateY(-50%) scale(170%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}
+#newGameBtn:active{
+    transform: translateY(0%) scale(120%);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+}
+#resetGameBtn{
+    transform: scale(180%);
+    height: 3.5vmin;
+    width: 14vmin;
+    padding: 0%;
+    margin: 0%;
+    background-color:#7fd1b9ff;
+    color: #1c1d21ff;
+    font-size:medium;
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    cursor:pointer;
+    transition: all 0.3s;
+}
+#resetGameBtn:hover{
+    transform: translateY(-5%) scale(200%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}
+#resetGameBtn:active{
+    transform: translateY(0%) scale(150%);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+}
+.wholeCont{
+    transform: translateY(-120px) scale(0%);
+}
+.gameStartContent{
+    animation: gameStart 2s ease;
+    animation-fill-mode: forwards;
+}
+.gameBg{
+    transform: translateY(40px);
+    height: 80vmin;
+    width: 70vmin;
+    background:linear-gradient(45deg, #421f20, #8e3a3d);
+    box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, .5);
+    position: absolute;
+    z-index: -1;
+    border-radius: 2rem;
+    opacity: 80%;
+}
+.gameBgWin{
+    transform: translateY(-2px);
+    height: 65vmin;
+    width: 70vmin;
+    background:linear-gradient(45deg, #421f20, #8e3a3d);
+    box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, .5);
+    position: absolute;
+    z-index: -1;
+    border-radius: 2rem;
+    opacity: 80%;
+}
+.scaleDownAfterWin{
+    animation: scaleDownGame 2s ease;
+    animation-fill-mode: both;
+}
+.title{
+    transform: translateY(35vmin);
+}
+#mainHead1{
+    animation: onTheWebDisplay .6s ease 1s;
+    animation-fill-mode: both;
+}
+#mainHead0{
+    animation: titleBoom .4s ease-in;
+    animation-fill-mode: forwards;
+}
+.startGame{
+    transform: translateY(-35px) scale(110%);
+    height: 50px;
+    width: 200px;
+    background-color:#7fd1b9ff;
+    color: #1c1d21ff;
+    font-size: x-large;
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    cursor:pointer;
+    animation: startGameBtn 1s ease 2.5s;
+    animation-fill-mode: both;
+    transition: all 0.3s;
+}
+.startGame:hover{
+    transform: scale(130%) translateY(-30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+.startGame:active{
+    transform: scale(110%) translateY(-30px);
+    box-shadow: 0 0 50px rgba(0, 0, 0, .7);
+}
+.titleMoveUp{
+    animation: titleMoveUp 2s;
+    animation-fill-mode: forwards;
+}
+#turnStatus{
+    transform: scale(300%) translateY(-5px);
+    color:#e56b6fff;
+    animation: startGameBtn 2s ease 1s;
+    animation-fill-mode: both;
+}
+.hiddenStartGameBtn{
+    transform: translateY(-35px) scale(110%);
+    height: 50px;
+    width: 200px;
+    background-color:#7fd1b9ff;
+    color: #1c1d21ff;
+    font-size: x-large;
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    cursor:pointer;
+    animation: startGameBtnGo 2s ease;
+    animation-fill-mode: both;
+}
+.footerCredit{
+    transform: scale(110%) translate(-82vmin, -20.7vmin);
+}
+.footerCredit2{
+    transform: scale(110%) translate(-82vmin, -24.7vmin);
+}
+
+/* ANIMATED KEYFRAMES */
+@keyframes scaleDownGame{
+    0%{
+        transform: translateY(-120px) scale(100%);
+    }
+    100%{
+        transform: translateY(-80px) scale(90%);
+    }
+}
+@keyframes gameStart {
+    0%{
+        transform: translateY(200px) scale(0%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(-189px) scale(85%);
+        opacity: 1;
+    }
+    
+}
+@keyframes titleBoom {
+    0%{
+        transform: scale(800%);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(200%);
+        opacity: 1;
+    }
+    
+}
+@keyframes onTheWebDisplay {
+    0%{
+        transform: translateY(-50px) scale(120%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(-30px) scale(120%);
+        opacity: 1;
+    }
+}
+@keyframes startGameBtn {
+    0%{
+        opacity: 0;
+    } 
+    100%{
+        opacity: 1;
+    }
+    
+}
+@keyframes clickMeText {
+    0%{
+        opacity: 0;
+        transform: translateY(-70px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(-45px);
+    }
+}
+@keyframes titleMoveUp {
+    0%{
+        transform: translateY(35vmin);
+    }
+    100%{
+        transform: translateY(0vmin);
+    }
+}
+@keyframes startGameBtnGo {
+    0%{
+        opacity: 1;
+        transform: scale(110%) translateY(-35px);
+    } 
+    100%{
+        opacity: 0;
+        transform: scale(0%) translateY(-40px);
+    }   
+}
+@keyframes winMsgPop {
+    0%{
+        transform: scale(500%);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(110%) translateY(-5vmin);
+        opacity: 1;
+    }
+}
+@keyframes newGameBtnShow {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes creditUp {
+    0%{
+        transform: scale(110%) translateY(-20.7vmin);
+    }
+    100%{
+        transform: scale(110%) translateY(-22.7vmin);
+    }
+}
