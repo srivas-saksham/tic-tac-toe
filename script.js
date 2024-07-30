@@ -201,10 +201,11 @@ boxes.forEach((box) => {
                     for(let box of boxes){
                         if (box.innerText != 'X' &&
                             box.innerText != 'O'){
-                            box.disabled = false
+                                box.disabled = false
                         }
-                        if(box.getAttribute('class') == 'boxTemp Text'){
-                            box.disabled = false
+                        if(box.getAttribute('class') == 'boxTemp Text' &&
+                            box.getAttribute('id') != 'boxPerma'){
+                                box.disabled = false
                         }
                     }
                     cpuSearching = false
