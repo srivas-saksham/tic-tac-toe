@@ -1,4 +1,4 @@
-//Fetching Object Models
+//Fetching Object Models----------------------------------------------------------------------------------------------------------------
 let boxes= document.querySelectorAll('.box')
 let win = document.querySelector('#winningMsg')
 let newGameBtn = document.querySelector('#newGameBtn')
@@ -11,7 +11,8 @@ let turnStatus = document.querySelector('#turnStatus')
 let footerCredit = document.querySelector('.footerCredit')
 let turnO = true
 let curr = 'O'
-cpuSearching = false
+let cpuSearching = false
+let didWin = false
 let data = ['','','','','','','','','']
 let checkList = []
 let winning = [
@@ -24,8 +25,9 @@ let winning = [
     [0,4,8],
     [2,4,6]
 ]
-//DESCRIBING FUNCTIONS
+//DESCRIBING FUNCTIONS-------------------------------------------------------------------------------------------------------------------
 function winningMsg(winner){
+    didWin = true
     if(checkList[0] == 'X'){
         winner = 'CPU'
         win.innerHTML = `${winner} Won the Match! Sad!`
@@ -40,6 +42,7 @@ function winningMsg(winner){
     gameBg.classList.remove('gameBg')
     wholeCont.classList.remove('gameStartContent')
     wholeCont.classList.add('scaleDownAfterWin')
+    console.log('@winningMsg')
 }
 
 function resetGame(){
@@ -79,14 +82,11 @@ function smartComp() {
             compCheckList.push(boxes[pattern[0]].innerText)
             compCheckList.push(boxes[pattern[1]].innerText)
             compCheckList.push(boxes[pattern[2]].innerText)
-            console.log(`compchrcklist intital = ${compCheckList}`)
             for(j of compCheckList){
                 if(j == ''){
                     lstval.push(j)
                 }
             }
-            console.log(`pattern is ${pattern}`)
-            console.log(`lstval length = [${lstval.length}]\n`)
             if(lstval.length == 1){
                 if( compCheckList[0] == sign && 
                     compCheckList[1] == sign ||
@@ -110,12 +110,10 @@ function smartComp() {
         sign = 'O'
     }
     if(boxes[4].innerText == ''){
-        console.log('yes yes')
         compChoice = 4
         return
     }
     else{
-        console.log('yaha tak')
         do{
             compChoice = Math.floor(Math.random() * 9)
         }while(
@@ -130,7 +128,6 @@ function computerMove(){
     // }while(
     //     boxes[compChoice].innerText != ''
     // )
-    console.log(compChoice)
     boxes[compChoice].setAttribute('id', 'boxPerma')
     let sign = (turnO == true)? 'O' : 'X'
     boxes[compChoice].innerText = sign
@@ -139,7 +136,7 @@ function computerMove(){
     turnStatus.innerText = 'Your Turn'
 }
 
-//DESCRIBING EVENT LISTENERS
+//DESCRIBING EVENT LISTENERS --------------------------------------------------------------------------------------------------------
 boxes.forEach((box) => {
     box.addEventListener('mouseover', () => {
         if (box.getAttribute('id') != 'boxPerma' && cpuSearching != true){
@@ -203,16 +200,23 @@ boxes.forEach((box) => {
                             box.innerText != 'O'){
                                 box.disabled = false
                         }
-                        if(box.getAttribute('class') == 'boxTemp Text' &&
+                        if (box.getAttribute('class') == 'boxTemp Text' &&
                             box.getAttribute('id') != 'boxPerma'){
                                 box.disabled = false
+                            
+                        }
+                        if (box.getAttribute('class') == 'boxTemp Text disabled'){
+                            box.disabled = true
                         }
                     }
                     cpuSearching = false
                     resetGameBtn.disabled=false
+                    console.log('inside settimeout')
                 }, 2000);
+                console.log('below settimeout')
             }
         }
+        console.log('below below settimeout')
         checkWin()
     })
     resetGameBtn.addEventListener('click', () =>{
